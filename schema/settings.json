@@ -1,0 +1,38 @@
+{
+  "title": "Limit Output",
+  "description": "Limit number of a characters in a output (per mime-bundle)",
+  "type": "object",
+  "definitions": {
+    "limitMethod": {
+      "type": "string",
+      "enum": ["lines", "characters"]
+    }
+  },
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "title": "Enabled",
+      "description": "Enable limit output mime render",
+      "default": true
+    },
+    "head": {
+      "type": "number",
+      "title": "Head of output limit",
+      "description": "Number of characters or lines to show from the top of an output.",
+      "default": 50
+    },
+    "tail": {
+      "type": "number",
+      "title": "Tail of output limit",
+      "description": "Number of characters or lines to show from the bottom of an output.",
+      "default": 50
+    },
+    "method": {
+      "title": "Limit Method",
+      "description": "Limit output based on head/tail 'lines' or 'characters'",
+      "$ref": "#/definitions/limitMethod",
+      "default": "lines"
+    }
+  },
+  "additionalProperties": false
+}

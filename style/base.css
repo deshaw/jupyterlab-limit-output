@@ -1,0 +1,12 @@
+.limit-output-button {
+  color: var(--jp-content-link-color) !important;
+  background: var(--jp-layout-color1) !important;
+}
+
+.limit-output-button:hover {
+  background: var(--jp-layout-color2) !important;
+}
+
+.limit-output-button:active {
+  background: var(--jp-layout-color3) !important;
+}
