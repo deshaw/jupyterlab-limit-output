@@ -184,6 +184,7 @@ export const rendererFactory: IRenderMime.IRendererFactory = {
   safe: true,
   mimeTypes: [
     'text/plain',
+    'text/html',
     'application/vnd.jupyter.stdout',
     'application/vnd.jupyter.stderr',
   ],
