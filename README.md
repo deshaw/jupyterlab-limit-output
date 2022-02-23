@@ -26,13 +26,7 @@ This extension won't help because each line would be it's own mime renderer (lab
 To install this package with [`pip`](https://pip.pypa.io/en/stable/) run
 
 ```bash
-pip install jupyterlab_limit_output
-```
-
-To install this package with [`conda`](https://docs.conda.io/en/latest/) run
-
-```bash
-conda install -c conda-forge jupyterlab_limit_output
+pip install jupyterlab-limit-output
 ```
 
 ## Contributing
