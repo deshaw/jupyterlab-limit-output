@@ -187,8 +187,10 @@ export class MyRenderedText extends RenderedText {
    * to enable commands and extensions to access it later; this leads to
    * a memory leak as the event holds the target node reference.
    */
-  dispose() {
-    this.node.innerHTML = '';
+  dispose(): void {
+    // TODO: remove ts-ignore during JupyterLab 4.0/TypeScript 5.0 migration
+    // @ts-ignore
+    this.node.replaceChildren();
     super.dispose();
   }
 }
