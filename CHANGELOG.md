@@ -1,3 +1,12 @@
+## [2.0.0](https://github.com/deshaw/jupyterlab-limit-output/compare/v1.0.1...v2.0.0) (UNRELEASED)
+
+### Changed
+
+- **Breaking**: Ported to JupyterLab 4.x.
+- Updated the `build` github workflow to use the latest versions of the github
+  actions; the latest version of python (3.11); and latest version (18.x)
+  version of node.
+
 ## [1.0.1](https://github.com/deshaw/jupyterlab-limit-output/compare/v1.0.0...v1.0.1) (2023-03-27)
 
 ### Fixed
