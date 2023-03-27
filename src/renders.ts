@@ -178,6 +178,22 @@ export class MyRenderedText extends RenderedText {
       translator: this.translator,
     });
   }
+
+  /**
+   * Dispose the contents of node to contain potential memory leak.
+   *
+   * **Notes**: when user attempts to clean the output using context menu
+   * they invoke `JupyterFrontEnd.evtContextMenu` which caches the event
+   * to enable commands and extensions to access it later; this leads to
+   * a memory leak as the event holds the target node reference.
+   */
+  dispose(): void {
+    // TODO: remove ts-ignore during JupyterLab 4.0/TypeScript 5.0 migration
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.node.replaceChildren();
+    super.dispose();
+  }
 }
 
 export const rendererFactory: IRenderMime.IRendererFactory = {

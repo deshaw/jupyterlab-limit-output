@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/deshaw/jupyterlab-limit-output/compare/v1.0.0...v1.0.1) (2023-03-27)
+
+### Fixed
+
+- Fixed memory leak [#3](https://github.com/deshaw/jupyterlab-limit-output/issues/3)
+
 ## [1.0.0](https://github.com/deshaw/jupyterlab-limit-output/compare/v1.0.0...v1.0.0) (2022-02-18)
 
 ### Added
