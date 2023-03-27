@@ -189,6 +189,7 @@ export class MyRenderedText extends RenderedText {
    */
   dispose(): void {
     // TODO: remove ts-ignore during JupyterLab 4.0/TypeScript 5.0 migration
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     this.node.replaceChildren();
     super.dispose();
