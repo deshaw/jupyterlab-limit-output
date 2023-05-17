@@ -1,4 +1,4 @@
-## [2.0.0](https://github.com/deshaw/jupyterlab-limit-output/compare/v1.0.1...v2.0.0) (UNRELEASED)
+## [2.0.0](https://github.com/deshaw/jupyterlab-limit-output/compare/v1.0.1...v2.0.0) (2023-05-18)
 
 ### Changed
 

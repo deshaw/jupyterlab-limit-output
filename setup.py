@@ -40,7 +40,7 @@ setup_args = dict(
     license=pkg_json["license"],
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_namespace_packages(),
     install_requires=["jupyter_server>=2.0.1,<3"],
     zip_safe=False,
     include_package_data=True,
