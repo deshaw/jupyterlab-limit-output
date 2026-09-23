@@ -1,10 +1,15 @@
 *.bundle.*
 lib/
 node_modules/
+*.log
+.eslintcache
+.stylelintcache
 *.egg-info/
 .ipynb_checkpoints
 *.tsbuildinfo
 jupyterlab_limit_output/labextension
+# Version file is handled by hatchling
+jupyterlab_limit_output/_version.py
 
 # Created by https://www.gitignore.io/api/python
 # Edit at https://www.gitignore.io/?templates=python

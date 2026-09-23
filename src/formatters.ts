@@ -7,7 +7,7 @@ const SPACER = '\n\n\n';
 export const limitByCharacters = (
   text: string,
   head: number,
-  tail: number
+  tail: number,
 ): string => {
   const maxChars = head + tail;
   if (text.length > maxChars) {
@@ -65,7 +65,7 @@ function _nthNewLineFromLastIndex(text: string, n: number): number | null {
 export const limitByLines = (
   text: string,
   head: number,
-  tail: number
+  tail: number,
 ): string => {
   const headEndPos = head > 0 ? _nthNewLineIndex(text, head) : -1;
   if (headEndPos === null) {

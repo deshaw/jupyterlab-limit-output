@@ -42,7 +42,7 @@ const limitOutputRenderText = async (
   options: renderText.IRenderOptions,
   _head = 0,
   _tail = 0,
-  _cleanupButtonFn: () => void = null
+  _cleanupButtonFn: () => void = null,
 ) => {
   if (limitSettings.enabled) {
     // We have to clone so that we can both keep track of number of head/tail
@@ -57,13 +57,13 @@ const limitOutputRenderText = async (
       clonedOptions.source = limitByCharacters(
         options.source,
         clonedOptions.head,
-        clonedOptions.tail
+        clonedOptions.tail,
       );
     } else {
       clonedOptions.source = limitByLines(
         options.source,
         clonedOptions.head,
-        clonedOptions.tail
+        clonedOptions.tail,
       );
     }
     // Add a div so we can easily remove output
@@ -141,7 +141,7 @@ const limitOutputRenderText = async (
             },
             clonedOptions.head,
             clonedOptions.tail,
-            cleanup
+            cleanup,
           );
           // Not the best design, but we know the prev element added is the renderText one
           // so we remove it before we redisplay

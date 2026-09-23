@@ -23,14 +23,14 @@ const extension: IRenderMime.IExtension = {
 
 const RenderExtension: JupyterFrontEndPlugin<void> = {
   id: `${PLUGIN_NAME}:renders`,
+  description: 'Limit long text output for a single mime render',
   autoStart: true,
   requires: [IRenderMimeRegistry, ISettingRegistry],
   activate: function (
     app: JupyterFrontEnd,
     rendermime: IRenderMimeRegistry,
-    settingRegistry: ISettingRegistry
+    settingRegistry: ISettingRegistry,
   ) {
-    // eslint-disable-next-line no-console
     console.log('JupyterLab extension jupyterlab-limit-output is activated!');
 
     rendermime.addFactory(extension.rendererFactory, extension.rank);
@@ -51,9 +51,9 @@ const RenderExtension: JupyterFrontEndPlugin<void> = {
       },
       (err: Error) => {
         console.error(
-          `Could not load settings, so did not activate ${PLUGIN_NAME}: ${err}`
+          `Could not load settings, so did not activate ${PLUGIN_NAME}: ${err}`,
         );
-      }
+      },
     );
   },
 };

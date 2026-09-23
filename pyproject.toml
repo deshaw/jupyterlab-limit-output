@@ -1,10 +1,74 @@
 [build-system]
-requires = ["jupyter_packaging~=0.10,<2", "jupyterlab~=4.0.0"]
-build-backend = "jupyter_packaging.build_api"
+requires = ["hatchling>=1.27", "jupyter-builder>=1.2.0,<2", "hatch-nodejs-version>=0.3.2"]
+build-backend = "hatchling.build"
 
-[tool.jupyter-packaging.builder]
-factory = "jupyter_packaging.npm_builder"
+[project]
+name = "jupyterlab_limit_output"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE.txt"]
+authors = [
+    { name = "Marc Udoff" },
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Framework :: Jupyter",
+    "Framework :: Jupyter :: JupyterLab",
+    "Framework :: Jupyter :: JupyterLab :: 4",
+    "Framework :: Jupyter :: JupyterLab :: Extensions",
+    "Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = []
+dynamic = ["version", "description", "urls", "keywords"]
 
-[tool.jupyter-packaging.build-args]
+[project.optional-dependencies]
+dev = [
+    "jupyterlab>=4",
+    "jupyter-builder>=1.2.0",
+]
+
+[tool.hatch.version]
+source = "nodejs"
+
+[tool.hatch.metadata.hooks.nodejs]
+fields = ["description", "urls", "keywords"]
+
+[tool.hatch.build.targets.sdist]
+artifacts = ["jupyterlab_limit_output/labextension"]
+exclude = [".github", "binder"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"jupyterlab_limit_output/labextension" = "share/jupyter/labextensions/jupyterlab-limit-output"
+"install.json" = "share/jupyter/labextensions/jupyterlab-limit-output/install.json"
+
+[tool.hatch.build.hooks.version]
+path = "jupyterlab_limit_output/_version.py"
+
+[tool.hatch.build.hooks.jupyter-builder]
+dependencies = ["hatch-jupyter-builder>=0.5"]
+build-function = "hatch_jupyter_builder.npm_builder"
+ensured-targets = [
+    "jupyterlab_limit_output/labextension/static/style.js",
+    "jupyterlab_limit_output/labextension/package.json",
+]
+skip-if-exists = ["jupyterlab_limit_output/labextension/static/style.js"]
+
+[tool.hatch.build.hooks.jupyter-builder.build-kwargs]
 build_cmd = "build:prod"
 npm = ["jlpm"]
+
+[tool.hatch.build.hooks.jupyter-builder.editable-build-kwargs]
+build_cmd = "install:extension"
+npm = ["jlpm"]
+source_dir = "src"
+build_dir = "jupyterlab_limit_output/labextension"
+
+[tool.check-wheel-contents]
+ignore = ["W002"]
